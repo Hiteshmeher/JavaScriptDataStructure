@@ -1,0 +1,54 @@
+/*
+Write a program in the following steps
+a. Generates 10 Random 3 Digit number.
+b. Store this random numbers into a array.
+c. Then find the 2nd largest and the 2nd smallest element without sorting the array.
+*/
+
+let numberArray = new Array();
+let largestNumber = 100;
+let smallestNumber = 999;
+let secondLargestNumber = 100;
+let secondSmallestNumber = 999;
+
+function generateRandomNumber() {
+    return Math.floor(Math.random()*899) + 100;     //generating random 3 digit number
+}
+
+console.log("Ten random 3 digit numbers in Array: ")
+for (let i = 0; i < 10; i++) {
+    numberArray.push(generateRandomNumber());
+}
+console.log(numberArray);                           // printing 10 random numbers of 3-digit
+
+for (i = 0; i < numberArray.length; i++) {
+    let currentElement = numberArray[i];
+
+    if (currentElement > largestNumber) {           // for largest element
+        largestNumber = currentElement;
+    }
+
+    if (currentElement < smallestNumber) {          // for smallest element
+        smallestNumber = currentElement;
+    }    
+}
+
+//printing largest and smallest element
+console.log("Largest Element : " + largestNumber);
+console.log("Smallest Element : " + smallestNumber);
+
+for (i = 0; i < numberArray.length; i++) {
+    let currentElement = numberArray[i];
+
+    if (currentElement > secondLargestNumber && currentElement < largestNumber) {
+        secondLargestNumber = currentElement;       // for 2nd largest
+    }
+
+    if (currentElement < secondSmallestNumber && currentElement > smallestNumber) {
+        secondSmallestNumber = currentElement;      // for 2nd smallest
+    }    
+}
+
+// printing second largest and second smallest
+console.log("Second Largest Element : " + secondLargestNumber);
+console.log("Second Smallest Element : " + secondSmallestNumber);

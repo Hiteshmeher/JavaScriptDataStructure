@@ -1,0 +1,16 @@
+/*
+Extend the Prime Factorization Program to store all the Prime Factors of a
+number n into an array and finally display the output.
+*/
+
+let primeFactorArray = new Array();
+var Prompt = require('prompt-sync')();
+let n = parseInt(Prompt("Enter the number : "))
+console.log("The prime factors for "+n+ " are :");
+for (let i = 2;i < n;i++){
+    while(n%i == 0){
+        primeFactorArray.push(i);
+        n = n/i;
+    }
+}
+console.log(primeFactorArray);

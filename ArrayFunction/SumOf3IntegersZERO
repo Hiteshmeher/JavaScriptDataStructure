@@ -1,0 +1,25 @@
+const prompt = require("prompt-sync")();
+let intArray = new Array();
+let flag = 1;
+let arraySize = prompt("Enter the size of the array : ");
+
+console.log("Enter " + arraySize + " array values : ");
+for (let i = 0; i < arraySize; i++) {
+    intArray[i] = parseInt(prompt());
+}
+console.log("The Array is : " + intArray);
+
+for (let i = 0; i < intArray.length - 2; i++) {
+    for (let j = i + 1; j < intArray.length - 1; j++) {
+        for (let k = j + 1; k < intArray.length; k++) {
+            if (intArray[i] + intArray[j] + intArray[k] == 0) {
+                console.log("Found Triplet");
+                console.log("Elements are: " + intArray[i] + " " + intArray[j] + " " + intArray[k]);
+                flag = 0;
+            }
+        }
+    }
+}
+
+if (flag == 1)
+    console.log("Triplet whose sum is 0 does not exist");
